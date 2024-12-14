@@ -81,7 +81,8 @@ form.addEventListener('submit', (e) => {
       method: 'POST',
       body: formData,
       headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        mode: 'cors'
       }
     })
     .then((response) => response.json())
