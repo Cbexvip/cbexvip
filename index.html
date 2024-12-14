@@ -67,31 +67,49 @@
           Contact Customer Service
         </div>
       </a>
+      
+      <div id="form-message"></div>
 
 
       <script>
-        const form = document.getElementById('myForm');
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  // Get form data
+  const formData = new FormData(event.target);
 
-  const formData = new FormData(form);
+  // Prepare the data to send
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
 
-  fetch('(https://formspree.io/f/mldekyqd)', {
+  // Send data to Formspree
+  fetch('https://formspree.io/f/mldekyqd', { // Replace 'your_form_id' with your actual Formspree form ID
       method: 'POST',
-      body: formData,
       headers: {
         'Accept': 'application/json',
-        mode: 'cors'
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById('form-message').innerText = 'Thank you for your submission! Redirecting...';
+
+        // Redirect after 2 seconds to another page (e.g., thank-you.html)
+        setTimeout(function() {
+          window.location.href = 'update.html'; // Replace with your desired redirect URL
+        }, 2000); // 2-second delay for a smooth transition
+
+      } else {
+        document.getElementById('form-message').innerText = 'Something went wrong. Please try again.';
       }
     })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      // Redirect to another page
-      window.location.href = '(update.html)';
-    })
-    .catch((error) => console.error(error));
+    .catch(error => {
+      document.getElementById('form-message').innerText = 'There was an error submitting the form. Please try again later.';
+      console.error('Error submitting form:', error);
+    });
 });
       </script>
 
