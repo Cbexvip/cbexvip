@@ -1,0 +1,144 @@
+body {
+  background-color: #0D0E12;
+  padding: .7em;
+  font-family: sans-serif;
+}
+
+.back {
+  color: white;
+  margin-bottom: 1.2em;
+}
+
+.log {
+  margin-bottom: 3em;
+}
+
+.login {
+  color: white;
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+.eng {
+  float: right;
+  font-weight: 500;
+  font-size: 1em;
+  color: white;
+}
+
+.detail {
+  color: white;
+  display: flex;
+  
+  column-gap: 1em;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.border {
+  border-bottom: solid #D99900;
+}
+
+.email {
+  width: auto;
+  padding: auto;
+  text-align: center;
+  margin-right: 1em;
+  padding: 0.3em 0;
+}
+
+.num {
+  width: auto;
+  padding: 0.3em 0;
+}
+
+.mail, .pwd{
+  width: 95%;
+  padding: 1.3em 0;
+  background-color: #0D0E12;
+  border: none;
+  border-bottom: solid black 1px;
+  color: white;
+  font-size: 1em;
+  outline: none;
+}
+
+.mail::placeholder, .pwd::placeholder {
+  color: gray;
+  font-size: 0.84em;
+}
+
+.checkdiv {
+  color: gray;
+  margin-top: 0.5em;
+}
+
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  background-color: #0D0E12;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid lightgrey 0.9px;
+  padding: auto;
+}
+
+/* Style the checkbox when checked */
+.checkbox-container input[type="checkbox"]:checked {
+  background-color: #41435A;
+  border: solid #41435A 0.9px;
+
+}
+
+/* Optional: Add a checkmark or other visual indicator when checked */
+.checkbox-container input[type="checkbox"]:checked::before {
+  content: "\2713"; /* Checkmark symbol */
+  font-size: 14px;
+  color: white;
+}
+
+.loginbtn {
+  color: white;
+  background-color: #D99900;
+  width: 97%;
+  font-size: 1em;
+  margin-top: 0.7em;
+  padding: 0.7em 0;
+  border: none;
+  border-radius: 5em;
+}
+
+.downloadbtn {
+  text-decoration: none;
+  background-color: #0D0E12;
+  border: solid #D99900 0.7px;
+  width: 100%;
+  color: #D99900;
+}
+
+.anc {
+  text-decoration: none;
+  color: #D99900;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+.float {
+  float: right;
+}
+
+
+.kkk {
+  margin-top: 1em;
+}
+
+.ccs {
+  margin-top: 3em;
+  text-align: center;
+}
+
