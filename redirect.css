@@ -1,0 +1,24 @@
+body {
+  background-color: #0D0E12;
+  padding: .7em;
+  font-family: sans-serif;
+}
+
+
+
+.cont {
+  text-decoration: none;
+  
+}
+
+.loginbtn {
+  color: white;
+  background-color: #D99900;
+  width: 97%;
+  font-size: 1em;
+  margin-top: 0.7em;
+  padding: 0.7em 0;
+  border: none;
+  border-radius: 5em;
+  text-align: center;
+}
